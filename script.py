@@ -74,11 +74,18 @@ month_in_number = {'JAN': 1, 'FEB': 2, 'MAR': 3, 'APR': 4, 'MAY': 5, 'JUN': 6,
 
 def split_string_date(input_date):
     input = input_date.split('-')
-    return input[0], month_in_number[input[1]], input[2]
-
+    if len(input[2]) == 2:
+        year = int(input[2])
+        if year < 50:
+            year += 2000
+        else:
+            year += 1900
+    day = '{:02d}'.format(int(input[0]))
+    month_number = '{:02d}'.format(month_in_number[input[1]])
+    return day, month_number, int(year)
 
 print("Not formatted: 01-JAN-2019, Formatted: ",
-      split_string_date('01-JAN-2019'))
+      split_string_date('01-JAN-19'))
 
 # 4.2 & 4.3 (example with user input)
 input_date = input('Enter date in format DD-MON-YYYY: ')
