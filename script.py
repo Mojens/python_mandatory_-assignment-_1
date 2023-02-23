@@ -1,4 +1,4 @@
-import sys 
+import sys
 
 board_of_directors = {"Benny", "Hans", "Tine",
                       "Mille", "Torben", "Troels", "Søren"}
@@ -55,14 +55,19 @@ print("Difference: ", difference_set1_on_set2)
 disJointSet = set1 & set2
 print("Disjoint: ", disJointSet)
 
-#4.1 Create a dict suitable for decoding month names to numbers.
-month_in_number = {'JAN' : 1, 'FEB':2, 'MAR':3,'APR':4, 'MAY':5,'JUN':6,
-                    'JUL':7,'AUG':8, 'SEP':9,'OCT':10,'NOV':11,'DEC':12}
-#4.2 Create a function which uses string operations to split the date into 3 items using the "-" character.
+# 4.1 Create a dict suitable for decoding month names to numbers.
+month_in_number = {'JAN': 1, 'FEB': 2, 'MAR': 3, 'APR': 4, 'MAY': 5, 'JUN': 6,
+                   'JUL': 7, 'AUG': 8, 'SEP': 9, 'OCT': 10, 'NOV': 11, 'DEC': 12}
+# 4.2 & 4.3 Create a function which uses string operations to split the date into 3 items using the "-" character. & Translate the month, correct the year to include all of the digits.
+
+
 def split_string_date(input_date):
     input = input_date.split('-')
     return input[0], month_in_number[input[1]], input[2]
-print("Not formatted: 01-JAN-2019, Formatted: ",split_string_date('01-JAN-2019'))
-# 4.2 (example with user input)
+
+
+print("Not formatted: 01-JAN-2019, Formatted: ",
+      split_string_date('01-JAN-2019'))
+# 4.2 & 4.3 (example with user input)
 input_date = input('Enter date in format DD-MON-YYYY: ')
 print(split_string_date(input_date))
